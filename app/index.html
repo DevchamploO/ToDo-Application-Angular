@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="main" lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Testing AngularJs</title>
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</head>
+<body ng-controller="appCtrl">
+	<h1>Add a Task</h1>
+	<form ng-submit="submit()">
+		<input ng-model="textbox" type="text">
+		<input type="submit" value="Submit">
+		{{title}}
+	</form>
+
+	<div id="tasks_wrapper">
+		<ul>
+			<li ng-repeat="task in tasks track by $index">
+				<input type="checkbox" ng-click="markAsDone(task)">
+				<button ng-click="deleteTask(task)">X</button>
+				<p>{{task.task_item}}</p>
+			</li>
+		</ul>
+		<ul>
+			<li ng-repeat="done in done_tasks track by $index">
+				<p>{{done.task_item}}</p>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
